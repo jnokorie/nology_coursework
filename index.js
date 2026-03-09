@@ -10,6 +10,7 @@ const feed = (petsname, hunger, energy) => {
     }
     else{
         energy += 5
+        hunger -= 5
         return { hunger, energy }
     }
 }
@@ -40,7 +41,11 @@ const checkStatus = (petsname,energy, happiness, hunger) => {
 }
 
 
-checkStatus(petName, petHappiness, petHunger, petEnergy)
+checkStatus(petName, petEnergy, petHappiness, petHunger)
+
+const feedResult = feed(petName, petHunger, petEnergy)
+petHunger = feedResult.hunger
+petEnergy = feedResult.energy
 
 const playResult = play(petName, petHappiness, petHunger, petEnergy)
 petHappiness = playResult.happiness
@@ -52,4 +57,4 @@ petHunger = sleepResult.hunger
 petEnergy = sleepResult.energy
 
 
-checkStatus(petName, petHappiness, petHunger, petEnergy)
+checkStatus(petName, petEnergy, petHappiness, petHunger)
