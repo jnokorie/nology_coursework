@@ -1,60 +1,29 @@
-const petName = "charlie"
-let petEnergy = 30
-let petHunger = 20
-let petHappiness = 30
+// The starting data
+const holidayDestinations = [
+  { locationName: "Maldives", vacationType: "beach", budget: 1200 },
+  { locationName: "Tokyo", vacationType: "city", budget: 800 },
+  { locationName: "Swiss Alps", vacationType: "nature", budget: 1500 },
+  { locationName: "Bali", vacationType: "beach", budget: 900 },
+  { locationName: "New York", vacationType: "city", budget: 1100 }
+];
 
-const feed = (petsname, hunger, energy) => {
-    if (hunger < 10){
-        console.log(`${petsname} refuses to eat!`)
-        return { hunger, energy }
+// Step 1 & 2: Write your formatDestination function here
+const formatDestination = (destination) => {
+    if (destination.vacationType === "beach"){
+        return `[Beach Getaway] ${destination.locationName} £${destination.budget}`
     }
-    else{
-        energy += 5
-        hunger -= 5
-        return { hunger, energy }
+    else if (destination.vacationType === "city"){
+        return `[City Break] ${destination.locationName} £${destination.budget}`
     }
-}
-
-const play = (petsname, happiness, hunger, energy) => {
-    if(energy < 20){
-        console.log(`${petsname} is too tired to play!`)
-        return { happiness, hunger, energy }
-    }
-    else{
-        happiness += 5
-        hunger += 5
-        energy -=5
-    return {happiness, hunger, energy}
+    else if (destination.vacationType === "nature"){
+        return `[Nature Retreat] ${destination.locationName} £${destination.budget}`
     }
 }
 
-const sleep = (energy, hunger) => {
-    energy += 20
-    hunger += 4
-    return{ hunger, energy }
-}
 
-const checkStatus = (petsname,energy, happiness, hunger) => {
-    console.log(`${petsname}'s hunger is: ${hunger}`)
-    console.log(`${petsname}'s energy is: ${energy}`)
-    console.log(`${petsname}'s happiness is: ${happiness}`)
-}
+// Step 3: Use .map() to create your formattedBrochure array here
+const formattedBrochure = holidayDestinations.map(destination => formatDestination(destination))
 
+// Step 4: console.log your formattedBrochure array
 
-checkStatus(petName, petEnergy, petHappiness, petHunger)
-
-const feedResult = feed(petName, petHunger, petEnergy)
-petHunger = feedResult.hunger
-petEnergy = feedResult.energy
-
-const playResult = play(petName, petHappiness, petHunger, petEnergy)
-petHappiness = playResult.happiness
-petHunger = playResult.hunger
-petEnergy = playResult.energy
-
-const sleepResult = sleep(petEnergy, petHunger)
-petHunger = sleepResult.hunger
-petEnergy = sleepResult.energy
-
-
-checkStatus(petName, petEnergy, petHappiness, petHunger)
+console.log(formattedBrochure)
