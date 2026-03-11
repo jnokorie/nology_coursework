@@ -27,9 +27,9 @@ const MovieList = () => {
     ]
     return (
         <>
-        <MovieCard title={movieData[0].title} director={movieData[0].director} year={movieData[0].year} rating={movieData.rating} />
-        <MovieCard title={movieData[1].title} director={movieData[1].director} year={movieData[1].year} rating={movieData.rating} />
-        <MovieCard title={movieData[2].title} director={movieData[2].director} year={movieData[2].year} rating={movieData.rating} />
+        <MovieCard title={movieData[0].title} director={movieData[0].director} year={movieData[0].year} rating={movieData[0].rating} />
+        <MovieCard title={movieData[1].title} director={movieData[1].director} year={movieData[1].year} rating={movieData[1].rating} />
+        <MovieCard title={movieData[2].title} director={movieData[2].director} year={movieData[2].year} rating={movieData[2].rating} />
         </>
     )
 }
